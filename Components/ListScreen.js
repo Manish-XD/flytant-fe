@@ -10,7 +10,7 @@ import searchIcon from "../public/img/searchIcon.png";
 
 export async function getServerSideProps(context)
 {   
-    const res = await fetch('http://localhost:8000/?page=1');
+    const res = await fetch('https://flytant-be.onrender.com/?page=1');
     const data = await res.json();
     return { props: { data }};
 }
@@ -58,7 +58,7 @@ function ListScreen({list, currentNoteTitle, currentNoteDescription, currentNote
         const newPage = page + 1;
         try 
         {
-            const res = await fetch(`http://localhost:8000/?page=${newPage}`);
+            const res = await fetch(`https://flytant-be.onrender.com/?page=${newPage}`);
             const newData = await res.json();
 
             if (newData.length === 0) 
@@ -85,7 +85,7 @@ function ListScreen({list, currentNoteTitle, currentNoteDescription, currentNote
     {
         try 
         {
-            const response = await fetch('http://localhost:8000', {
+            const response = await fetch('https://flytant-be.onrender.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

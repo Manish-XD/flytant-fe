@@ -15,9 +15,9 @@ import arrow from "../../public/img/arrow.png";
 export async function getServerSideProps(context) 
 {
   const { slug } = context.query;
-  const res = await fetch(`http://localhost:8000/${slug}`);
+  const res = await fetch(`https://flytant-be.onrender.com/${slug}`);
   const data = await res.json();
-  const listRes = await fetch(`http://localhost:8000/?page=1`);
+  const listRes = await fetch(`https://flytant-be.onrender.com/?page=1`);
   const list = await listRes.json();
   return { props: { data, list } };
 }
@@ -53,7 +53,7 @@ function note({ data, list })
   {
     try 
     {
-      const response = await fetch(`http://localhost:8000/deleteNote/${slug}`, {
+      const response = await fetch(`https://flytant-be.onrender.com/deleteNote/${slug}`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ function note({ data, list })
     };
     try 
     {
-      const response = fetch(`http://localhost:8000/${slug}`, {
+      const response = fetch(`https://flytant-be.onrender.com/${slug}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -93,12 +93,12 @@ function note({ data, list })
       console.log(error);
     }
   }
-  
+
   return (
     <div className={styles.editScreen__container}>
       <Navbar />
       <div className={styles.editBlock}>
-        <Link href={"/Lists"} style={{display: 'flex', alignItems: 'center', width: '6rem', justifyContent: 'space-between', color: '#000000', textDecoration: 'none', fontWeight: 600, fontSize: '24px'}}>
+        <Link href={"/Lists"} style={{display: 'flex', alignItems: 'center', width: '6rem', justifyContent: 'space-between', color: '#000000', textDecoration: 'none', fontWeight: 600, fontSize: '24px'}} className={styles.backButton}>
           <Image src={arrow} alt="back arrow"/>
           Back
         </Link>
