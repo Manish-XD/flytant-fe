@@ -11,7 +11,7 @@ import styles from "../styles/ListScreen.module.css";
 
 export async function getServerSideProps(context) 
 {
-    const res = await fetch('https://flytant-be.onrender.com/?page=1');
+    const res = await fetch('https://flytant-be.vercel.app/?page=1');
     const lists = await res.json();
     return { props: { lists } };
 }
@@ -62,7 +62,7 @@ function Lists({ lists })
 
         try 
         {
-            const res = await fetch(`https://flytant-be.onrender.com/?page=${newPage}`);
+            const res = await fetch(`https://flytant-be.vercel.app/?page=${newPage}`);
             const newData = await res.json();
             console.log(newData);
 
@@ -91,7 +91,7 @@ function Lists({ lists })
     {
         try 
         {
-            const response = await fetch('https://flytant-be.onrender.com', {
+            const response = await fetch('https://flytant-be.vercel.app', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

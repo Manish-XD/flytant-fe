@@ -15,9 +15,9 @@ import arrow from "../../public/img/arrow.png";
 export async function getServerSideProps(context) 
 {
   const { slug } = context.query;
-  const res = await fetch(`https://flytant-be.onrender.com/${slug}`);
+  const res = await fetch(`https://flytant-be.vercel.app/${slug}`);
   const data = await res.json();
-  const listRes = await fetch(`https://flytant-be.onrender.com/?page=1`);
+  const listRes = await fetch(`https://flytant-be.vercel.app/?page=1`);
   const list = await listRes.json();
   return { props: { data, list } };
 }
@@ -53,7 +53,7 @@ function note({ data, list })
   {
     try 
     {
-      const response = await fetch(`https://flytant-be.onrender.com/deleteNote/${slug}`, {
+      const response = await fetch(`https://flytant-be.vercel.app/deleteNote/${slug}`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ function note({ data, list })
     };
     try 
     {
-      const response = fetch(`https://flytant-be.onrender.com/${slug}`, {
+      const response = fetch(`https://flytant-be.vercel.app/${slug}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

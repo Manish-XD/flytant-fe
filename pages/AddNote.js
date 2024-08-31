@@ -11,7 +11,7 @@ import styles from "../styles/AddNote.module.css";
 
 export async function getServerSideProps(context) 
 {
-    const listRes = await fetch(`https://flytant-be.onrender.com/?page=1`);
+    const listRes = await fetch(`https://flytant-be.vercel.app/?page=1`);
     const list = await listRes.json();
     return { props: { list } };
 }
@@ -41,7 +41,7 @@ function AddNote({list})
         };
         try 
         {
-            const response = fetch(`https://flytant-be.onrender.com`, {
+            const response = fetch(`https://flytant-be.vercel.app`, {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
